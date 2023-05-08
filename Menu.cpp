@@ -1,9 +1,11 @@
 #include <iostream>
 #include "Menu.h";
+#include "Game.h";
 using namespace std;
 
 void Menu()
 {
+	Ships projection;
 	char choise;
 	bool exit = false;
 	bool exit1 = false;
@@ -25,8 +27,13 @@ void Menu()
 				cin >> choise;
 				if (choise == 'a' || choise == 'A')
 				{
-
+					system("cls");
+					cout << "\t\t///This is your battlefield where your ships will be located. Your opponent will have the same.\\\\\\" << endl;;
+					projection.Battle();
+					cout << "///Now let's place your ships on the battlefield. In your shipyard you have: \n#four one-cell ships [ ] [ ] [ ] [ ] \n\n#three two-cell ships [ ][ ] [ ][ ] [ ][ ] \n\n#two three-cell ships [ ][ ][ ] [ ][ ][ ] \n\n#one four-cell ship [ ][ ][ ][ ] " << endl;
+					system("pause");
 				}
+
 				else if (choise == 'b' || choise == 'B')
 				{
 
