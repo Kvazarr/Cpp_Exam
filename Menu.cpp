@@ -110,5 +110,10 @@ void Menu()
 			cout << "Happy hunting IRL" << endl;
 			exit = true;
 		}
+		else
+		{
+			cout << "Wrong action..." << endl;
+			system("pause");
+		}
 	}
 }
