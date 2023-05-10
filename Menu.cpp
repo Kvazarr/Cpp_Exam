@@ -5,7 +5,7 @@ using namespace std;
 
 void Menu()
 {
-	Ships projection;
+	Ships projectionA;
 	char choise;
 	bool exit = false;
 	bool exit1 = false;
@@ -15,7 +15,7 @@ void Menu()
 		exit1 = false;
 
 		system("cls");
-		cout << "/////////Hail to you, sea wolf\n//////Choose the side you want to fight for:\n\n\t\t\ta)The British Royal Navy;\t\tb)Pirates of the Caribbean seas;\n\t\t\tx)Exit"<<endl;
+		cout << "/////////Hail to you, sea wolf\n//////Choose the side you want to fight for:\n\n\t\t\ta)The British Royal Navy;\t\tb)Pirates of the Caribbean seas;\n\t\t\tx)Exit" << endl;
 		cin >> choise;
 		if (choise == 'a' || choise == 'A')
 		{
@@ -27,20 +27,17 @@ void Menu()
 				cin >> choise;
 				if (choise == 'a' || choise == 'A')
 				{
-					system("cls");
-					cout << "\t\t///This is your battlefield where your ships will be located. Your opponent will have the same.\\\\\\" << endl;;
-					projection.Battle();
-					cout << "///Now let's place your ships on the battlefield. In your shipyard you have: \n#four one-cell ships [ ] [ ] [ ] [ ] \n\n#three two-cell ships [ ][ ] [ ][ ] [ ][ ] \n\n#two three-cell ships [ ][ ][ ] [ ][ ][ ] \n\n#one four-cell ship [ ][ ][ ][ ] " << endl;
-					system("pause");
+					projectionA.Rules();
+					projectionA.FourCell();
 				}
 
 				else if (choise == 'b' || choise == 'B')
 				{
-
+					projectionA.Rules();
 				}
 				else if (choise == 'c' || choise == 'C')
 				{
-
+					projectionA.Rules();
 				}
 				else if (choise == 'f' || choise == 'F')
 				{
@@ -49,7 +46,7 @@ void Menu()
 					cout << "\t#Admiral Horatio Nelson - was an outstanding British naval commander, Vice-Admiral, 1st Baronet Viscount Nelson, \t1st Duke of Brontë.";
 					cout << "He was noted for his outstanding leadership skills and mastery of strategy." << endl;
 					cout << endl;
-					cout << "\t#Admiral John Jervis - British admiral, 1st Earl of St Vincent, participated in the Revolutionary and Napoleonic \twars."<<endl;
+					cout << "\t#Admiral John Jervis - British admiral, 1st Earl of St Vincent, participated in the Revolutionary and Napoleonic \twars." << endl;
 					cout << endl;
 					cout << "\t#Admiral Edward Pellew - English admiral, 1st Earl of St Vincent, Commander-in-Chief of the British Mediterranea \tFleet." << endl;
 					cout << endl;

@@ -1,11 +1,13 @@
 #pragma once
-#include <iostream>
+#include<string>
+#include "Fleet.h";
 using namespace std;
 
 struct Ships
 {
-private:
-	int* field = new int[300] {};
 public:
-	void Battle();
+	Fleet projectionB;
+	char choice;
+	void Rules();
+	void FourCell();
 };
