@@ -1,9 +1,11 @@
 #include <iostream>
 #include"Game.h";
+#include"Fleet.h";
 using namespace std;
 
 void Ships::Rules()
 {
+	Fleet projectionB;
 	system("cls");
 	cout << "\t\t///This is your battlefield where your ships will be located. Your opponent will have the same.\\\\\\" << endl;
 	cout << endl;
@@ -20,8 +22,9 @@ void Ships::Rules()
 
 void Ships::FourCell()
 {
+	Fleet projectionB;
 	system("cls");
 	cout << "Select the position of the ship: vertical or horizontal.\nEnter next[v][h]: ";
 	cin >> choice;
-	projectionB.FirstStage();
+	projectionB.FirstStage(choice);
 }

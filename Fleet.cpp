@@ -3,16 +3,16 @@
 #include"Game.h";
 using namespace std;
 
-void Fleet::FirstStage()
+void Fleet::FirstStage(char choice)
 {
 	int arr[4]{};
-	if (projectionC.choice == 'v' || projectionC.choice == 'V')
+	if (choice=='v'||choice=='V')
 	{
-
+		
 	}
-	else if (projectionC.choice == 'h' || projectionC.choice == 'H')
+	else if (choice=='h'||choice=='H')
 	{
-
+		
 	}
 	else
 	{
