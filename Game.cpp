@@ -24,7 +24,16 @@ void Ships::FourCell()
 {
 	Fleet projectionB;
 	system("cls");
-	cout << "Select the position of the ship: vertical or horizontal.\nEnter next[v][h]: ";
+	cout << "Four-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]: ";
 	cin >> choice;
 	projectionB.FirstStage(choice);
+}
+
+void Ships::ThreeCell()
+{
+	Fleet projectionB;
+	system("cls");
+	cout << "Three-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]:";
+	cin >> choice;
+	projectionB.SecondStage(choice);
 }

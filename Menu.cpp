@@ -121,8 +121,3 @@ void Menu()
 		}
 	}
 }
-
-struct AAA
-{
-	Ships BBB;
-};
