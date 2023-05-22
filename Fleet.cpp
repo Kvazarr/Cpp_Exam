@@ -10,6 +10,7 @@ void Fleet::FirstStage(char choice)
 	char sign;
 	int arr[4]{};
 	int coordinates = 0;
+	int temp;
 
 	if (choice=='v'||choice=='V')
 	{
@@ -28,14 +29,14 @@ void Fleet::FirstStage(char choice)
 			{
 				for (int i = coordinates-1; i <coordinates+3; i++)
 				{
-					for (int j = 0; j < 1;)
+					temp = 0;
+					for (int j = temp; j <= temp;j++)
 					{
 						field[i][j] = 1;
 					}
 				}
 				projectionC.BattleField();
 				system("pause");
-				exit = true;
 			}
 			else if (sign == 'b' && coordinates < 6)
 			{
@@ -155,7 +156,7 @@ void Fleet::FirstStage(char choice)
 						field[i][j] = 1;
 					}
 				}
-				exit = true;
+				
 				projectionC.BattleField();
 				system("pause");
 			}
@@ -312,7 +313,7 @@ void Fleet::BattleField()
 		for (int j = 0; j < 9; j++)
 		{
 			cout << "[";
-			if (field[i][j] = 1)
+			if (field[i][j] > 0)
 			{
 				cout << "*";
 			}
