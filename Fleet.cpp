@@ -1,16 +1,16 @@
 #include <iostream>
 #include"Fleet.h";
 #include"Game.h";
+#include"Settings.h";
 using namespace std;
 
 void Fleet::FirstStage(char choice)
 {
 	Fleet projectionC;
+	Settings projectionD;
 	bool exit = false;
 	char sign;
-	int arr[4]{};
 	int coordinates = 0;
-	int temp;
 
 	if (choice=='v'||choice=='V')
 	{
@@ -25,105 +25,51 @@ void Fleet::FirstStage(char choice)
 			cout << "Enter the numeric coordinates: ";
 			cin >> coordinates;
 
+			ptr = &coordinates;
+			
 			if (sign == 'a' && coordinates < 6)
 			{
-				for (int i = coordinates-1; i <coordinates+3; i++)
-				{
-					temp = 0;
-					for (int j = temp; j <= temp;j++)
-					{
-						field[i][j] = 1;
-					}
-				}
-				projectionC.BattleField();
-				system("pause");
+				projectionD.Va(coordinates);
+				exit = true;
 			}
 			else if (sign == 'b' && coordinates < 6)
 			{
-				for (int i = coordinates - 1; i < coordinates + 3; i++)
-				{
-					for (int j = 1; j < 2;)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Vb(ptr);
 				exit = true;
 			}
 			else if (sign == 'c' && coordinates < 6)
 			{
-				for (int i = coordinates - 1; i < coordinates + 3; i++)
-				{
-					for (int j = 2; j < 3;)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Vc(ptr);
 				exit = true;
 			}
 			else if (sign == 'd' && coordinates < 6)
 			{
-				for (int i = coordinates - 1; i < coordinates + 3; i++)
-				{
-					for (int j = 3; j < 4;)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Vd(ptr);
 				exit = true;
 			}
 			else if (sign == 'e' && coordinates < 6)
 			{
-				for (int i = coordinates - 1; i < coordinates + 3; i++)
-				{
-					for (int j = 4; j < 5;)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Ve(ptr);
 				exit = true;
 			}
 			else if (sign == 'f' && coordinates < 6)
 			{
-				for (int i = coordinates - 1; i < coordinates + 3; i++)
-				{
-					for (int j = 5; j < 6;)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Vf(ptr);
 				exit = true;
 			}
 			else if (sign == 'g' && coordinates < 6)
 			{
-				for (int i = coordinates - 1; i < coordinates + 3; i++)
-				{
-					for (int j = 6; j < 7;)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Vg(ptr);
 				exit = true;
 			}
 			else if (sign == 'h' && coordinates < 6)
 			{
-				for (int i = coordinates - 1; i < coordinates + 3; i++)
-				{
-					for (int j = 7; j < 8;)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Vh(ptr);
 				exit = true;
 			}
 			else if (sign == 'i' && coordinates < 6)
 			{
-				for (int i = coordinates - 1; i < coordinates + 3; i++)
-				{
-					for (int j = 8; j < 9;)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Vi(ptr);
 				exit = true;
 			}
 			else
@@ -147,18 +93,13 @@ void Fleet::FirstStage(char choice)
 			cout << "Enter the numeric coordinates: ";
 			cin >> coordinates;
 
+			ptr = &coordinates;
+
 			if (sign == 'a')
 			{
-				for (int i = coordinates - 1; i < coordinates; i++)
-				{
-					for (int j = 0; j < 4; j++)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Ha(ptr);
+				exit = true;
 				
-				projectionC.BattleField();
-				system("pause");
 			}
 			else if (sign == 'b')
 			{
@@ -266,7 +207,7 @@ void Fleet::FirstStage(char choice)
 
 void Fleet::SecondStage(char choice)
 {
-
+	
 }
 
 void Fleet::Functionality()
@@ -313,7 +254,7 @@ void Fleet::BattleField()
 		for (int j = 0; j < 9; j++)
 		{
 			cout << "[";
-			if (field[i][j] > 0)
+			if (field[i][j]==1)
 			{
 				cout << "*";
 			}

@@ -4,8 +4,9 @@ using namespace std;
 
 struct Fleet
 {
+	int* ptr = nullptr;;
+	int field[9][9];
 public:
-	int field[9][9]{};
 	void FirstStage(char choice);
 	void SecondStage(char choice);
 	void Functionality();

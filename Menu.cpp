@@ -29,6 +29,7 @@ void Menu()
 				{
 					projectionA.Rules();
 					projectionA.FourCell();
+					projectionA.Test();
 				}
 
 				else if (choise == 'b' || choise == 'B')
@@ -41,16 +42,7 @@ void Menu()
 				}
 				else if (choise == 'f' || choise == 'F')
 				{
-					system("cls");
-					cout << endl;
-					cout << "\t#Admiral Horatio Nelson - was an outstanding British naval commander, Vice-Admiral, 1st Baronet Viscount Nelson, \t1st Duke of Brontë.";
-					cout << "He was noted for his outstanding leadership skills and mastery of strategy." << endl;
-					cout << endl;
-					cout << "\t#Admiral John Jervis - British admiral, 1st Earl of St Vincent, participated in the Revolutionary and Napoleonic \twars." << endl;
-					cout << endl;
-					cout << "\t#Admiral Edward Pellew - English admiral, 1st Earl of St Vincent, Commander-in-Chief of the British Mediterranea \tFleet." << endl;
-					cout << endl;
-					system("pause");
+					projectionA.BritishCaps();
 				}
 				else if (choise == 'x' || choise == 'X')
 				{
@@ -84,18 +76,7 @@ void Menu()
 				}
 				else if (choise == 'f' || choise == 'F')
 				{
-					system("cls");
-					cout << endl;
-					cout << "\t#Black beard - Edward Tich was a famous British pirate who operated in the Caribbean in 1716-1718.";
-					cout << "\n\tDespite his piracy in the UK, he is considered a national folk hero" << endl;
-					cout << endl;
-					cout << "\t#Bartholomew Roberts - is one of the most successful and famous pirates of all time, also known as Black Bart.  " << endl;
-					cout << "\tIn just three years, he managed to capture more than 400 ships. He operated in the Atlantic and the Caribbean." << endl;;
-					cout << endl;
-					cout << "\t#Sam Bellamy - also known as \"Black Sam Bellamy\", was an English pirate who was active in the early 18th century" << endl;
-					cout << "\tHe is known as one of the most successful pirates in history and one of the faces of the Golden Age of Piracy." << endl;
-					cout << endl;
-					system("pause");
+					projectionA.PiratesCaps();
 				}
 				else if (choise == 'x' || choise == 'X')
 				{
