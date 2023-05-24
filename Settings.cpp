@@ -228,10 +228,10 @@ void Settings::Show()
 		cout << iteration;
 		for (int j = 0; j < 9; j++)
 		{
-			cout << "[";
+			cout << "[ ";
 			if (field[i][j] == 1)
 			{
-				cout << "*";
+				cout << "x";
 			}
 			cout << "]";
 		}
