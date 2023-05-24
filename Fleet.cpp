@@ -7,7 +7,6 @@ using namespace std;
 void Fleet::FirstStage(char choice)
 {
 	Fleet projectionC;
-	Settings projectionD;
 	bool exit = false;
 	char sign;
 	int coordinates = 0;
@@ -24,52 +23,54 @@ void Fleet::FirstStage(char choice)
 			cin >> sign;
 			cout << "Enter the numeric coordinates: ";
 			cin >> coordinates;
-
-			ptr = &coordinates;
 			
 			if (sign == 'a' && coordinates < 6)
 			{
 				projectionD.Va(coordinates);
+				projectionD.Show();
+				system("pause");
 				exit = true;
 			}
 			else if (sign == 'b' && coordinates < 6)
 			{
-				projectionD.Vb(ptr);
+				projectionD.Vb(coordinates);
+				projectionD.Show();
+				system("pause");
 				exit = true;
 			}
 			else if (sign == 'c' && coordinates < 6)
 			{
-				projectionD.Vc(ptr);
+				projectionD.Vc(coordinates);
 				exit = true;
 			}
 			else if (sign == 'd' && coordinates < 6)
 			{
-				projectionD.Vd(ptr);
+				projectionD.Vd(coordinates);
 				exit = true;
 			}
 			else if (sign == 'e' && coordinates < 6)
 			{
-				projectionD.Ve(ptr);
+				projectionD.Ve(coordinates);
 				exit = true;
 			}
 			else if (sign == 'f' && coordinates < 6)
 			{
-				projectionD.Vf(ptr);
+				projectionD.Vf(coordinates);
 				exit = true;
 			}
 			else if (sign == 'g' && coordinates < 6)
 			{
-				projectionD.Vg(ptr);
+				projectionD.Vg(coordinates);
 				exit = true;
 			}
 			else if (sign == 'h' && coordinates < 6)
 			{
-				projectionD.Vh(ptr);
+				projectionD.Vh(coordinates);
 				exit = true;
 			}
 			else if (sign == 'i' && coordinates < 6)
 			{
-				projectionD.Vi(ptr);
+				projectionD.Vi(coordinates);
 				exit = true;
 			}
 			else
@@ -93,100 +94,54 @@ void Fleet::FirstStage(char choice)
 			cout << "Enter the numeric coordinates: ";
 			cin >> coordinates;
 
-			ptr = &coordinates;
-
 			if (sign == 'a')
 			{
-				projectionD.Ha(ptr);
+				projectionD.Ha(coordinates);
+				projectionD.Show();
+				system("pause");
 				exit = true;
 				
 			}
 			else if (sign == 'b')
 			{
-				for (int i = coordinates - 1; i < coordinates; i++)
-				{
-					for (int j = 1; j < 5; j++)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Hb(coordinates);
+				projectionD.Show();
+				system("pause");
 				exit = true;
 			}
 			else if (sign == 'c')
 			{
-				for (int i = coordinates - 1; i < coordinates; i++)
-				{
-					for (int j = 2; j < 6; j++)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Hc(coordinates);
 				exit = true;
 			}
 			else if (sign == 'd')
 			{
-				for (int i = coordinates - 1; i < coordinates; i++)
-				{
-					for (int j = 3; j < 7; j++)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Hd(coordinates);
 				exit = true;
 			}
 			else if (sign == 'e')
 			{
-				for (int i = coordinates - 1; i < coordinates; i++)
-				{
-					for (int j = 4; j < 8; j++)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.He(coordinates);
 				exit = true;
 			}
 			else if (sign == 'f')
 			{
-				for (int i = coordinates - 1; i < coordinates; i++)
-				{
-					for (int j = 5; j < 9; j++)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Hf(coordinates);
 				exit = true;
 			}
 			else if (sign == 'g')
 			{
-				for (int i = coordinates - 1; i < coordinates; i++)
-				{
-					for (int j = 6; j >= 3; j--)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Hg(coordinates);
 				exit = true;
 			}
 			else if (sign == 'h')
 			{
-				for (int i = coordinates - 1; i < coordinates; i++)
-				{
-					for (int j = 7; j >= 4; j--)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Hh(coordinates);
 				exit = true;
 			}
 			else if (sign == 'i')
 			{
-				for (int i = coordinates - 1; i < coordinates; i++)
-				{
-					for (int j = 8; j >= 5; j--)
-					{
-						field[i][j] = 1;
-					}
-				}
+				projectionD.Hi(coordinates);
 				exit = true;
 			}
 			else
@@ -229,36 +184,6 @@ void Fleet::Functionality()
 		for (int j = 0; j < 9; j++)
 		{
 			cout << "[ ]";
-		}
-		iteration++;
-		cout << endl;
-	}
-}
-
-void Fleet::BattleField()
-{
-	int ascii = 97;
-	int iteration = 1;
-
-	for (int i = 0; i < 9; i++)
-	{
-		cout << "  " << (char)ascii;
-		ascii++;
-	}
-
-	cout << endl;
-
-	for (int i = 0; i < 9; i++)
-	{
-		cout << iteration;
-		for (int j = 0; j < 9; j++)
-		{
-			cout << "[";
-			if (field[i][j]==1)
-			{
-				cout << "*";
-			}
-			cout << "]";
 		}
 		iteration++;
 		cout << endl;

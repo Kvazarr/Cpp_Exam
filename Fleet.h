@@ -1,14 +1,13 @@
 #pragma once
 #include"Game.h";
+#include"Settings.h";
 using namespace std;
 
 struct Fleet
 {
-	int* ptr = nullptr;;
-	int field[9][9];
+	Settings projectionD;
 public:
 	void FirstStage(char choice);
 	void SecondStage(char choice);
 	void Functionality();
-	void BattleField();
 };

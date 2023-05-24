@@ -6,7 +6,6 @@ using namespace std;
 
 void Ships::Rules()
 {
-	Fleet projectionB;
 	system("cls");
 	cout << "\t\t///This is your battlefield where your ships will be located. Your opponent will have the same.\\\\\\" << endl;
 	cout << endl;
@@ -53,7 +52,6 @@ void Ships::PiratesCaps()
 
 void Ships::FourCell()
 {
-	Fleet projectionB;
 	system("cls");
 	cout << "Four-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]: ";
 	cin >> choice;
@@ -62,16 +60,8 @@ void Ships::FourCell()
 
 void Ships::ThreeCell()
 {
-	Fleet projectionB;
 	system("cls");
 	cout << "Three-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]:";
 	cin >> choice;
 	projectionB.SecondStage(choice);
-}
-
-void Ships::Test()
-{
-	Settings projectionB;
-	projectionB.Show();
-	system("pause");
 }

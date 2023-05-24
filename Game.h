@@ -4,6 +4,7 @@ using namespace std;
 
 struct Ships
 {
+	Fleet projectionB;
 public:
 	char choice;
 	void Rules();
@@ -11,5 +12,4 @@ public:
 	void PiratesCaps();
 	void FourCell();
 	void ThreeCell();
-	void Test();
 };

@@ -8,24 +8,24 @@ struct Settings
 	int temp = 0;
 public:
 	void Va(int coordinates);
-	void Vb(int* ptr);
-	void Vc(int* ptr);
-	void Vd(int* ptr);
-	void Ve(int* ptr);
-	void Vf(int* ptr);
-	void Vg(int* ptr);
-	void Vh(int* ptr);
-	void Vi(int* ptr);
+	void Vb(int coordinates);
+	void Vc(int coordinates);
+	void Vd(int coordinates);
+	void Ve(int coordinates);
+	void Vf(int coordinates);
+	void Vg(int coordinates);
+	void Vh(int coordinates);
+	void Vi(int coordinates);
 
-	void Ha(int* ptr);
-	void Hb(int* ptr);
-	void Hc(int* ptr);
-	void Hd(int* ptr);
-	void He(int* ptr);
-	void Hf(int* ptr);
-	void Hg(int* ptr);
-	void Hh(int* ptr);
-	void Hi(int* ptr);
+	void Ha(int coordinates);
+	void Hb(int coordinates);
+	void Hc(int coordinates);
+	void Hd(int coordinates);
+	void He(int coordinates);
+	void Hf(int coordinates);
+	void Hg(int coordinates);
+	void Hh(int coordinates);
+	void Hi(int coordinates);
 
 	void Show();
 };

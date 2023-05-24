@@ -29,7 +29,6 @@ void Menu()
 				{
 					projectionA.Rules();
 					projectionA.FourCell();
-					projectionA.Test();
 				}
 
 				else if (choise == 'b' || choise == 'B')
