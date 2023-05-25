@@ -11,7 +11,7 @@ void Fleet::FirstStage(char choice)
 	char sign;
 	int coordinates = 0;
 
-	if (choice=='v'||choice=='V')
+	if (choice == 'v' || choice == 'V')
 	{
 		while (!exit)
 		{
@@ -23,60 +23,56 @@ void Fleet::FirstStage(char choice)
 			cin >> sign;
 			cout << "Enter the numeric coordinates: ";
 			cin >> coordinates;
-			
-			if (sign == 'a' && coordinates < 6)
+
+			if (sign == 'a' && coordinates >= 1)
 			{
-				projectionD.Va(coordinates);
-				projectionD.Show();
-				system("pause");
+				projectionD.Va_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'b' && coordinates < 6)
+			else if (sign == 'b' && coordinates >= 1)
 			{
-				projectionD.Vb(coordinates);
-				projectionD.Show();
-				system("pause");
+				projectionD.Vb_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'c' && coordinates < 6)
+			else if (sign == 'c' && coordinates >= 1)
 			{
-				projectionD.Vc(coordinates);
+				projectionD.Vc_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'd' && coordinates < 6)
+			else if (sign == 'd' && coordinates >= 1)
 			{
-				projectionD.Vd(coordinates);
+				projectionD.Vd_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'e' && coordinates < 6)
+			else if (sign == 'e' && coordinates >= 1)
 			{
-				projectionD.Ve(coordinates);
+				projectionD.Ve_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'f' && coordinates < 6)
+			else if (sign == 'f' && coordinates >= 1)
 			{
-				projectionD.Vf(coordinates);
+				projectionD.Vf_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'g' && coordinates < 6)
+			else if (sign == 'g' && coordinates >= 1)
 			{
-				projectionD.Vg(coordinates);
+				projectionD.Vg_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'h' && coordinates < 6)
+			else if (sign == 'h' && coordinates >= 1)
 			{
-				projectionD.Vh(coordinates);
+				projectionD.Vh_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'i' && coordinates < 6)
+			else if (sign == 'i' && coordinates >= 1)
 			{
-				projectionD.Vi(coordinates);
+				projectionD.Vi_fourCell(coordinates);
 				exit = true;
 			}
 			else
 			{
 				cout << endl;
-			    cout << "  Error. Enter the coordinates correctly, with a small letter! Also consider that the ship may not fit on the field, taking into account the entered coordinates" << endl;
+				cout << "  Error. Enter the coordinates correctly, with a small letter! Also consider that the ship may not fit on the field, taking into account the entered coordinates" << endl;
 				system("pause");
 			}
 		}
@@ -94,54 +90,49 @@ void Fleet::FirstStage(char choice)
 			cout << "Enter the numeric coordinates: ";
 			cin >> coordinates;
 
-			if (sign == 'a')
+			if (sign == 'a' && coordinates >= 1)
 			{
-				projectionD.Ha(coordinates);
-				projectionD.Show();
-				system("pause");
-				exit = true;
-				
-			}
-			else if (sign == 'b')
-			{
-				projectionD.Hb(coordinates);
-				projectionD.Show();
-				system("pause");
+				projectionD.Ha_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'c')
+			else if (sign == 'b' && coordinates >= 1)
 			{
-				projectionD.Hc(coordinates);
+				projectionD.Hb_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'd')
+			else if (sign == 'c' && coordinates >= 1)
 			{
-				projectionD.Hd(coordinates);
+				projectionD.Hc_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'e')
+			else if (sign == 'd' && coordinates >= 1)
 			{
-				projectionD.He(coordinates);
+				projectionD.Hd_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'f')
+			else if (sign == 'e' && coordinates >= 1)
 			{
-				projectionD.Hf(coordinates);
+				projectionD.He_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'g')
+			else if (sign == 'f' && coordinates >= 1)
 			{
-				projectionD.Hg(coordinates);
+				projectionD.Hf_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'h')
+			else if (sign == 'g' && coordinates >= 1)
 			{
-				projectionD.Hh(coordinates);
+				projectionD.Hg_fourCell(coordinates);
 				exit = true;
 			}
-			else if (sign == 'i')
+			else if (sign == 'h' && coordinates >= 1)
 			{
-				projectionD.Hi(coordinates);
+				projectionD.Hh_fourCell(coordinates);
+				exit = true;
+			}
+			else if (sign == 'i' && coordinates >= 1)
+			{
+				projectionD.HI_fourCell(coordinates);
 				exit = true;
 			}
 			else
@@ -160,9 +151,300 @@ void Fleet::FirstStage(char choice)
 	}
 }
 
-void Fleet::SecondStage(char choice)
+void Fleet::SecondStage(char choice,bool& cycles)
 {
-	
+	Fleet projectionC;
+	bool exit = false;
+	char sign;
+	int coordinates = 0;
+
+	if (choice == 'v' || choice == 'V')
+	{
+		while (!exit)
+		{
+			system("cls");
+
+			projectionC.Functionality();
+
+			cout << "Select the alphabetical coordinates: ";
+			cin >> sign;
+			cout << "Enter the numeric coordinates: ";
+			cin >> coordinates;
+
+			if (sign == 'a' && coordinates >= 1)
+			{
+				projectionD.Va_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'b' && coordinates >= 1)
+			{
+				projectionD.Vb_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'c' && coordinates >= 1)
+			{
+				projectionD.Vc_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'd' && coordinates >= 1)
+			{
+				projectionD.Vd_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'e' && coordinates >= 1)
+			{
+				projectionD.Ve_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'f' && coordinates >= 1)
+			{
+				projectionD.Vf_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'g' && coordinates >= 1)
+			{
+				projectionD.Vg_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'h' && coordinates >= 1)
+			{
+				projectionD.Vh_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'i' && coordinates >= 1)
+			{
+				projectionD.Vi_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else
+			{
+				cout << endl;
+				cout << "  Error. Enter the coordinates correctly, with a small letter! Also consider that the ship may not fit on the field, taking into account the entered coordinates" << endl;
+				system("pause");
+			}
+
+		}
+	}
+	else if (choice == 'h' || choice == 'H')
+	{
+		system("cls");
+
+		projectionC.Functionality();
+
+		cout << "Select the alphabetical coordinates: ";
+		cin >> sign;
+		cout << "Enter the numeric coordinates: ";
+		cin >> coordinates;
+
+		while (!exit)
+		{
+			if (sign == 'a' && coordinates >= 1)
+			{
+				projectionD.Ha_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'b' && coordinates >= 1)
+			{
+				projectionD.Hb_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'c' && coordinates >= 1)
+			{
+				projectionD.Hc_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'd' && coordinates >= 1)
+			{
+				projectionD.Hd_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'e' && coordinates >= 1)
+			{
+				projectionD.He_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'f' && coordinates >= 1)
+			{
+				projectionD.Hf_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'g' && coordinates >= 1)
+			{
+				projectionD.Hg_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'h' && coordinates >= 1)
+			{
+				projectionD.Hh_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else if (sign == 'i' && coordinates >= 1)
+			{
+				projectionD.Hi_threeCell(coordinates);
+				cycles = true;
+				exit = true;
+			}
+			else
+			{
+				cout << endl;
+				cout << "  Error. Enter the coordinates correctly, with a small letter! Also consider that the ship may not fit on the field, taking into account the entered coordinates" << endl;
+				system("pause");
+			}
+		}
+	}
+	else
+	{
+		cout << endl;
+		cout << " Wrong action..." << endl;
+		system("pause");
+	}
+}
+
+void Fleet::ThirdStage(char choice, bool& cycles)
+{
+
+	Fleet projectionC;
+	bool exit = false;
+	char sign;
+	int coordinates = 0;
+
+	if (choice == 'v' || choice == 'V')
+	{
+		system("cls");
+
+		projectionC.Functionality();
+
+		cout << "Select the alphabetical coordinates: ";
+		cin >> sign;
+		cout << "Enter the numeric coordinates: ";
+		cin >> coordinates;
+
+		if (sign == 'a' && coordinates >= 1)
+		{
+			projectionD.Va_twoCell(coordinates);
+			cycles = true;
+			exit = true;
+		}
+		else if (sign == 'b' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'c' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'd' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'e' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'f' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'g' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'h' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'i' && coordinates >= 1)
+		{
+
+		}
+		else
+		{
+			cout << endl;
+			cout << "  Error. Enter the coordinates correctly, with a small letter! Also consider that the ship may not fit on the field, taking into account the entered coordinates" << endl;
+			system("pause");
+		}
+	}
+	else if (choice == 'h' || choice == 'H')
+	{
+		system("cls");
+
+		projectionC.Functionality();
+
+		cout << "Select the alphabetical coordinates: ";
+		cin >> sign;
+		cout << "Enter the numeric coordinates: ";
+		cin >> coordinates;
+
+		if (sign == 'a' && coordinates >= 1)
+		{
+			projectionD.Ha_twoCell(coordinates);
+			cycles = true;
+			exit = true;
+		}
+		else if (sign == 'b' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'c' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'd' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'e' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'f' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'g' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'h' && coordinates >= 1)
+		{
+
+		}
+		else if (sign == 'i' && coordinates >= 1)
+		{
+			projectionD.Hi_twoCell(coordinates);
+			cycles = true;
+			exit = true;
+		}
+		else
+		{
+			cout << endl;
+			cout << "  Error. Enter the coordinates correctly, with a small letter! Also consider that the ship may not fit on the field, taking into account the entered coordinates" << endl;
+			system("pause");
+		}
+	}
+	else
+	{
+		cout << endl;
+		cout << " Wrong action..." << endl;
+		system("pause");
+	}
 }
 
 void Fleet::Functionality()

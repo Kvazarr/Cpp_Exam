@@ -60,8 +60,30 @@ void Ships::FourCell()
 
 void Ships::ThreeCell()
 {
-	system("cls");
-	cout << "Three-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]:";
-	cin >> choice;
-	projectionB.SecondStage(choice);
+	for (int i = 0; i < 2; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			system("cls");
+			cout << "Three-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]:";
+			cin >> choice;
+			projectionB.SecondStage(choice, cycles);
+		}
+	}
+}
+
+void Ships::TwoCell()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			system("cls");
+			cout << "Two-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]: ";
+			cin >> choice;
+			projectionB.ThirdStage(choice, cycles);
+		}
+	}
 }
