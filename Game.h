@@ -14,4 +14,5 @@ public:
 	void FourCell();
 	void ThreeCell();
 	void TwoCell();
+	void OneCell();
 };

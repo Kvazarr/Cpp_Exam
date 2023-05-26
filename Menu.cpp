@@ -27,10 +27,11 @@ void Menu()
 				cin >> choise;
 				if (choise == 'a' || choise == 'A')
 				{
-					/*projectionA.Rules();
+					projectionA.Rules();
 					projectionA.FourCell();
-					projectionA.ThreeCell();*/
+					projectionA.ThreeCell();
 					projectionA.TwoCell();
+					projectionA.OneCell();
 				}
 
 				else if (choise == 'b' || choise == 'B')

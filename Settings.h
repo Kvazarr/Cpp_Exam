@@ -3,10 +3,13 @@ using namespace std;
 
 struct Settings
 {
-	int field[9][9];
+	int field[9][9]{};
+	int access = 0;
 	int temp = 0;
 	bool check = false;
 public:
+	void FirstCheck_V(char sign, int coordinates, bool& check);
+
 	void Va_fourCell(int coordinates);
 	void Vb_fourCell(int coordinates);
 	void Vc_fourCell(int coordinates);
@@ -63,6 +66,25 @@ public:
 	void Hg_twoCell(int coordinates);
 	void Hh_twoCell(int coordinates);
 	void Hi_twoCell(int coordinates);
+
+	void Va_oneCell(int coordinates);
+	void Vb_oneCell(int coordinates);
+	void Vc_oneCell(int coordinates);
+	void Vd_oneCell(int coordinates);
+	void Ve_oneCell(int coordinates);
+	void Vf_oneCell(int coordinates);
+	void Vg_oneCell(int coordinates);
+	void Vh_oneCell(int coordinates);
+	void Vi_oneCell(int coordinates);
+	void Ha_oneCell(int coordinates);
+	void Hb_oneCell(int coordinates);
+	void Hc_oneCell(int coordinates);
+	void Hd_oneCell(int coordinates);
+	void He_oneCell(int coordinates);
+	void Hf_oneCell(int coordinates);
+	void Hg_oneCell(int coordinates);
+	void Hh_oneCell(int coordinates);
+	void Hi_oneCell(int coordinates);
 
 	void Show();
 };

@@ -1,7 +1,5 @@
 #include <iostream>
 #include"Game.h";
-#include"Fleet.h";
-#include"Settings.h";
 using namespace std;
 
 void Ships::Rules()
@@ -84,6 +82,21 @@ void Ships::TwoCell()
 			cout << "Two-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]: ";
 			cin >> choice;
 			projectionB.ThirdStage(choice, cycles);
+		}
+	}
+}
+
+void Ships::OneCell()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			system("cls");
+			cout << "One-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]: ";
+			cin >> choice;
+			projectionB.FourthStage(choice, cycles);
 		}
 	}
 }
