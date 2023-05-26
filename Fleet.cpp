@@ -25,6 +25,8 @@ void Fleet::FirstStage(char choice)
 			if (sign == 'a' && coordinates >= 1 && coordinates < 10)
 			{
 				projectionD.Va_fourCell(coordinates);
+				projectionD.Show();
+				system("pause");
 				exit = true;
 			}
 			else if (sign == 'b' && coordinates >= 1 && coordinates < 10)
@@ -302,57 +304,111 @@ void Fleet::SecondStage(char choice, bool& cycles)
 		{
 			if (sign == 'a' && coordinates >= 1 && coordinates < 10)
 			{
-				projectionD.Ha_threeCell(coordinates);
-				cycles = true;
-				exit = true;
+				projectionD.FirstCheck_H(sign, coordinates, check);
+				if (check == true)
+				{
+					projectionD.Ha_threeCell(coordinates);
+					cycles = true;
+					exit = true;
+				}
+				cout << " Fatal! It is not possible to position a ship in this area." << endl;
+				system("pause");
 			}
 			else if (sign == 'b' && coordinates >= 1 && coordinates < 10)
 			{
-				projectionD.Hb_threeCell(coordinates);
-				cycles = true;
-				exit = true;
+				projectionD.FirstCheck_H(sign, coordinates, check);
+				if (check == true)
+				{
+					projectionD.Hb_threeCell(coordinates);
+					cycles = true;
+					exit = true;
+				}
+				cout << " Fatal! It is not possible to position a ship in this area." << endl;
+				system("pause");
 			}
 			else if (sign == 'c' && coordinates >= 1 && coordinates < 10)
 			{
-				projectionD.Hc_threeCell(coordinates);
-				cycles = true;
-				exit = true;
+				projectionD.FirstCheck_H(sign, coordinates, check);
+				if (check == true)
+				{
+					projectionD.Hc_threeCell(coordinates);
+					cycles = true;
+					exit = true;
+				}
+				cout << " Fatal! It is not possible to position a ship in this area." << endl;
+				system("pause");
 			}
 			else if (sign == 'd' && coordinates >= 1 && coordinates < 10)
 			{
-				projectionD.Hd_threeCell(coordinates);
-				cycles = true;
-				exit = true;
+				projectionD.FirstCheck_H(sign, coordinates, check);
+				if (check == true)
+				{
+					projectionD.Hd_threeCell(coordinates);
+					cycles = true;
+					exit = true;
+				}
+				cout << " Fatal! It is not possible to position a ship in this area." << endl;
+				system("pause");
 			}
 			else if (sign == 'e' && coordinates >= 1 && coordinates < 10)
 			{
-				projectionD.He_threeCell(coordinates);
-				cycles = true;
-				exit = true;
+				projectionD.FirstCheck_H(sign, coordinates, check);
+				if (check == true)
+				{
+					projectionD.He_threeCell(coordinates);
+					cycles = true;
+					exit = true;
+				}
+				cout << " Fatal! It is not possible to position a ship in this area." << endl;
+				system("pause");
 			}
 			else if (sign == 'f' && coordinates >= 1 && coordinates < 10)
 			{
-				projectionD.Hf_threeCell(coordinates);
-				cycles = true;
-				exit = true;
+				projectionD.FirstCheck_H(sign, coordinates, check);
+				if (check == true)
+				{
+					projectionD.Hf_threeCell(coordinates);
+					cycles = true;
+					exit = true;
+				}
+				cout << " Fatal! It is not possible to position a ship in this area." << endl;
+				system("pause");
 			}
 			else if (sign == 'g' && coordinates >= 1 && coordinates < 10)
 			{
-				projectionD.Hg_threeCell(coordinates);
-				cycles = true;
-				exit = true;
+				projectionD.FirstCheck_H(sign, coordinates, check);
+				if (check == true)
+				{
+					projectionD.Hg_threeCell(coordinates);
+					cycles = true;
+					exit = true;
+				}
+				cout << " Fatal! It is not possible to position a ship in this area." << endl;
+				system("pause");
 			}
 			else if (sign == 'h' && coordinates >= 1 && coordinates < 10)
 			{
-				projectionD.Hh_threeCell(coordinates);
-				cycles = true;
-				exit = true;
+				projectionD.FirstCheck_H(sign, coordinates, check);
+				if (check == true)
+				{
+					projectionD.Hh_threeCell(coordinates);
+					cycles = true;
+					exit = true;
+				}
+				cout << " Fatal! It is not possible to position a ship in this area." << endl;
+				system("pause");
 			}
 			else if (sign == 'i' && coordinates >= 1 && coordinates < 10)
 			{
-				projectionD.Hi_threeCell(coordinates);
-				cycles = true;
-				exit = true;
+				projectionD.FirstCheck_H(sign, coordinates, check);
+				if (check == true)
+				{
+					projectionD.Hi_threeCell(coordinates);
+					cycles = true;
+					exit = true;
+				}
+				cout << " Fatal! It is not possible to position a ship in this area." << endl;
+				system("pause");
 			}
 			else
 			{

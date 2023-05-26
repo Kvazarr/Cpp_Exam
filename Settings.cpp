@@ -1775,49 +1775,99 @@ void Settings::FirstCheck_V(char sign, int coordinates, bool& check)
 	}
 	else if (sign == 'i')
 	{
-		if (sign == 'a')
+		if (coordinates < 8)
 		{
-			if (coordinates < 8)
+			if (coordinates == 1)
 			{
-				if (coordinates == 1)
-				{
-					for (int i = coordinates - 1; i < coordinates; i++)
-					{
-						for (int j = 8; j < 9; j++)
-						{
-							if (field[i + 3][j] == 0)
-							{
-								access++;
-							}
-							if (field[i + 3][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i + 2][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i + 1][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i][j - 1] == 0)
-							{
-								access++;
-							}
-						}
-					}
-					if (access == 5)
-					{
-						check = true;
-						return;
-					}
-				}
 				for (int i = coordinates - 1; i < coordinates; i++)
 				{
 					for (int j = 8; j < 9; j++)
 					{
-						if (field[i - 1][j] == 0)
+						if (field[i + 3][j] == 0)
+						{
+							access++;
+						}
+						if (field[i + 3][j - 1] == 0)
+						{
+							access++;
+						}
+						if (field[i + 2][j - 1] == 0)
+						{
+							access++;
+						}
+						if (field[i + 1][j - 1] == 0)
+						{
+							access++;
+						}
+						if (field[i][j - 1] == 0)
+						{
+							access++;
+						}
+					}
+				}
+				if (access == 5)
+				{
+					check = true;
+					return;
+				}
+			}
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 8; j < 9; j++)
+				{
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 2][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 3][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 3][j] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 7)
+		{
+			if (coordinates == 8)
+			{
+				for (int i = coordinates - 1; i < coordinates; i++)
+				{
+					for (int j = 8; j < 9; j++)
+					{
+						if (field[i - 3][j] == 0)
+						{
+							access++;
+						}
+						if (field[i - 3][j - 1] == 0)
+						{
+							access++;
+						}
+						if (field[i - 2][j - 1] == 0)
 						{
 							access++;
 						}
@@ -1833,15 +1883,7 @@ void Settings::FirstCheck_V(char sign, int coordinates, bool& check)
 						{
 							access++;
 						}
-						if (field[i + 2][j - 1] == 0)
-						{
-							access++;
-						}
-						if (field[i + 3][j - 1] == 0)
-						{
-							access++;
-						}
-						if (field[i + 3][j] == 0)
+						if (field[i + 1][j] == 0)
 						{
 							access++;
 						}
@@ -1853,87 +1895,1314 @@ void Settings::FirstCheck_V(char sign, int coordinates, bool& check)
 					return;
 				}
 			}
-			else if (coordinates > 7)
+			else if (coordinates == 9)
 			{
-				if (coordinates == 8)
+				for (int i = coordinates - 1; i < coordinates; i++)
 				{
-					for (int i = coordinates - 1; i < coordinates; i++)
+					for (int j = 8; j < 9; j++)
 					{
-						for (int j = 8; j < 9; j++)
+						if (field[i - 3][j] == 0)
 						{
-							if (field[i - 3][j] == 0)
-							{
-								access++;
-							}
-							if (field[i - 3][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i - 2][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i - 1][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i + 1][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i + 1][j] == 0)
-							{
-								access++;
-							}
+							access++;
 						}
-					}
-					if (access == 7)
-					{
-						check = true;
-						return;
+						if (field[i - 3][j - 1] == 0)
+						{
+							access++;
+						}
+						if (field[i - 2][j - 1] == 0)
+						{
+							access++;
+						}
+						if (field[i - 1][j - 1] == 0)
+						{
+							access++;
+						}
+						if (field[i][j - 1] == 0)
+						{
+							access++;
+						}
 					}
 				}
-				else if (coordinates == 9)
+				if (access == 5)
 				{
-					for (int i = coordinates - 1; i < coordinates; i++)
-					{
-						for (int j = 8; j < 9; j++)
-						{
-							if (field[i - 3][j] == 0)
-							{
-								access++;
-							}
-							if (field[i - 3][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i - 2][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i - 1][j - 1] == 0)
-							{
-								access++;
-							}
-							if (field[i][j - 1] == 0)
-							{
-								access++;
-							}
-						}
-					}
-					if (access == 5)
-					{
-						check = true;
-						return;
-					}
+					check = true;
+					return;
 				}
 			}
 		}
+
 	}
+}
+
+void Settings::FirstCheck_H(char sign, int coordinates, bool& check)
+{
+	if (sign == 'a')
+	{
+		if (coordinates == 1)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 0; j < 1; j++)
+				{
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 5)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 1 && coordinates < 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 0; j < 1; j++)
+				{
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 9)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates == 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 0; j < 1; j++)
+				{
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 5)
+			{
+				check = true;
+				return;
+			}
+		}
+	}
+	if (sign == 'b')
+	{
+		if (coordinates == 1)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 1; j < 2; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 1 && coordinates < 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 1; j < 2; j++)
+				{
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 12)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates == 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 1; j < 2; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+	}
+	if (sign == 'c')
+	{
+		if (coordinates == 1)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 2; j < 3; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 1 && coordinates < 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 2; j < 3; j++)
+				{
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 12)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates == 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 2; j < 3; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+	}
+	if (sign == 'd')
+	{
+		if (coordinates == 1)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 3; j < 4; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 1 && coordinates < 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 3; j < 4; j++)
+				{
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 12)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates == 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 3; j < 4; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+	}
+	if (sign == 'e')
+	{
+		if (coordinates == 1)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 4; j < 5; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 1 && coordinates < 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 4; j < 5; j++)
+				{
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 12)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates == 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 4; j < 5; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+	}
+	if (sign == 'f')
+	{
+		if (coordinates == 1)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 5; j < 6; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 1 && coordinates < 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 5; j < 6; j++)
+				{
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 12)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates == 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 5; j < 6; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+	}
+	if (sign == 'g')
+	{
+		if (coordinates == 1)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 6; j < 7; j++)
+				{
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 2] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 5)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 1 && coordinates < 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 6; j < 7; j++)
+				{
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 9)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates == 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 6; j < 7; j++)
+				{
+					if (field[i - 1][j + 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 5)
+			{
+				check = true;
+				return;
+			}
+		}
+	}
+	if (sign == 'h')
+	{
+		if (coordinates == 1)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 7; j < 8; j++)
+				{
+					if (field[i][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 1] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 1 && coordinates < 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 7; j < 8; j++)
+				{
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 1] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 12)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates == 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 7; j < 8; j++)
+				{
+					if (field[i][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j + 1] == 0)
+					{
+						access++;
+					}
+					if (field[i][j + 1] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 7)
+			{
+				check = true;
+				return;
+			}
+		}
+	}
+	if (sign == 'i')
+	{
+		if (coordinates == 1)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 8; j < 9; j++)
+				{
+					if (field[i][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 5)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates > 1 && coordinates < 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 8; j < 9; j++)
+				{
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 2] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i + 1][j] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 9)
+			{
+				check = true;
+				return;
+			}
+		}
+		else if (coordinates == 9)
+		{
+			for (int i = coordinates - 1; i < coordinates; i++)
+			{
+				for (int j = 8; j < 9; j++)
+				{
+					if (field[i - 1][j] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 1] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 2] == 0)
+					{
+						access++;
+					}
+					if (field[i - 1][j - 3] == 0)
+					{
+						access++;
+					}
+					if (field[i][j - 3] == 0)
+					{
+						access++;
+					}
+				}
+			}
+			if (access == 5)
+			{
+				check = true;
+				return;
+			}
+		}
+	}
+}
+
+void Settings::SecondCheck_V(char sign, int coordinates, bool& check)
+{
+
+}
+
+void Settings::SecondCheck_H(char sign, int coordinates, bool& check)
+{
+
 }
 
 void Settings::Va_fourCell(int coordinates)
@@ -3160,12 +4429,14 @@ void Settings::Show()
 		cout << iteration;
 		for (int j = 0; j < 9; j++)
 		{
-			cout << "[ ";
 			if (field[i][j] == 1)
 			{
-				cout << "x";
+				cout << "[x]";
 			}
-			cout << "]";
+			else
+			{
+				cout << "[ ]";
+			}
 		}
 		iteration++;
 		cout << endl;

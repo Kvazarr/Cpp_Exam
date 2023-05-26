@@ -9,6 +9,9 @@ struct Settings
 	bool check = false;
 public:
 	void FirstCheck_V(char sign, int coordinates, bool& check);
+	void FirstCheck_H(char sign, int coordinates, bool& check);
+	void SecondCheck_V(char sign, int coordinates, bool& check);
+	void SecondCheck_H(char sign, int coordinates, bool& check);
 
 	void Va_fourCell(int coordinates);
 	void Vb_fourCell(int coordinates);
