@@ -10,5 +10,5 @@ public:
 	void SecondStage(char choice, bool& cycles);
 	void ThirdStage(char choice, bool& cycles);
 	void FourthStage(char choice, bool& cycles);
-	void Functionality();
+	void Functionality();;
 };
