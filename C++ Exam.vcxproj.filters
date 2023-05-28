@@ -33,6 +33,9 @@
     <ClCompile Include="Comp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Previev.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Menu.h">

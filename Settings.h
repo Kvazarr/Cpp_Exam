@@ -92,4 +92,6 @@ public:
 	void Hi_oneCell(int coordinates);
 
 	void Show();
+	void ShowEnemy();
+	void ProjectionShow(char sign, int coordinates,int& access);
 };

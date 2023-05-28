@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include"Game.h";
 using namespace std;
 
@@ -97,6 +98,2064 @@ void Ships::OneCell()
 			cout << "One-cell ship: select the position of the ship: vertical or horizontal.\nEnter next[v][h]: ";
 			cin >> choice;
 			projectionB.FourthStage(choice, cycles);
+		}
+	}
+}
+
+void Ships::Random_fourCell()
+{
+	projectionC.FirstStage();
+}
+
+void Ships::Random_threeCell()
+{
+	for (int i = 0; i < 2; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			projectionC.SecondStage(cycles);
+		}
+	}
+}
+
+void Ships::Random_twoCell()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			projectionC.ThirdStage(cycles);
+		}
+	}
+}
+
+void Ships::Random_oneCell()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			projectionC.ThirdStage(cycles);
+		}
+	}
+}
+
+void Ships::EnemyRandom_fourCell()
+{
+	projectionF.FirstStage();
+}
+
+void Ships::EnemyRandom_threeCell()
+{
+	for (int i = 0; i < 2; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			projectionF.SecondStage(cycles);
+		}
+	}
+}
+
+void Ships::EnemyRandom_twoCell()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			projectionF.ThirdStage(cycles);
+		}
+	}
+}
+
+void Ships::EnemyRandom_oneCell()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			projectionF.ThirdStage(cycles);
+		}
+	}
+}
+
+void Ships::Enemy2Random_fourCell()
+{
+	projectionG.FirstStage();
+}
+
+void Ships::Enemy2Random_threeCell()
+{
+	for (int i = 0; i < 2; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			projectionG.SecondStage(cycles);
+		}
+	}
+}
+
+void Ships::Enemy2Random_twoCell()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			projectionG.ThirdStage(cycles);
+		}
+	}
+}
+
+void Ships::Enemy2BRandom_oneCell()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			projectionF.ThirdStage(cycles);
+		}
+	}
+}
+
+void Ships::ProcessBritish(char choise, bool& exit2)
+{
+	char coordinates1;
+	int coordonates2 = 0;
+	int coordinates3 = 0;
+	int access = 0;
+	int PlayerA = 0;
+	int PlayerB = 0;
+
+	if (choise == 'a' || choise == 'A')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Horatio Nelson\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Black beard" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionB.projectionD.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! You're a lousy admiral..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+	else if (choise == 'b' || choise == 'B')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Horatio Nelson\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Bartholomew Roberts" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionB.projectionD.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! You're a lousy admiral..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+	else if (choise == 'c' || choise == 'C')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Edward Pellew\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Sam Bellamy" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionB.projectionD.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! You're a lousy admiral..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+}
+
+void Ships::RandomProcessBritish(char choise, bool& exit2)
+{
+	char coordinates1;
+	int coordonates2 = 0;
+	int coordinates3 = 0;
+	int access = 0;
+	int PlayerA = 0;
+	int PlayerB = 0;
+
+	if (choise == 'a' || choise == 'A')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Horatio Nelson\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Black beard" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionC.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! You're a lousy admiral..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+	else if (choise == 'b' || choise == 'B')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Horatio Nelson\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Bartholomew Roberts" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionC.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! You're a lousy admiral..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+	else if (choise == 'c' || choise == 'C')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Edward Pellew\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\Sam Bellamy" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionC.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! You're a lousy admiral..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+}
+
+void Ships::ProcessPirates(char choise, bool& exit2)
+{
+	char coordinates1;
+	int coordonates2 = 0;
+	int coordinates3 = 0;
+	int access = 0;
+	int PlayerA = 0;
+	int PlayerB = 0;
+
+	if (choise == 'a' || choise == 'A')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Black beard\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Horatio Nelson" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionB.projectionD.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! Go to the bottom of the kraken..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+	else if (choise == 'b' || choise == 'B')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Bartholomew Roberts\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral John Jervis" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionB.projectionD.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! Go to the bottom of the kraken..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+	else if (choise == 'c' || choise == 'C')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Sam Bellamy\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Edward Pellew" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionB.projectionD.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionB.projectionD.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! Go to the bottom of the kraken..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+}
+
+void Ships::RandomProcessPirates(char choise, bool& exit2)
+{
+	char coordinates1;
+	int coordonates2 = 0;
+	int coordinates3 = 0;
+	int access = 0;
+	int PlayerA = 0;
+	int PlayerB = 0;
+
+	if (choise == 'a' || choise == 'A')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Black beard\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Horatio Nelson" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionC.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! Go to the bottom of the kraken..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+	else if (choise == 'b' || choise == 'B')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Bartholomew Roberts\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral John Jervis" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.ShowEnemy();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionC.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! Go to the bottom of the kraken..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+	else if (choise == 'c' || choise == 'C')
+	{
+		cycles = false;
+		while (!cycles)
+		{
+			cycles2 = false;
+			cycles3 = false;
+
+			while (!cycles2)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "\\\\\\Sam Bellamy\nTo exit the game, press x. To restart the game, press r." << endl;
+				cout << endl;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.Show();
+
+				cout << endl;
+				cout << "Your turn. \nEnter Alphabetical coordinates for the salvo: ";
+				cin >> coordinates1;
+
+				if (coordinates1 == 'x')
+				{
+					exit2 = true;
+					return;
+				}
+				else if (coordinates1 == 'r')
+				{
+					return;
+				}
+
+				cout << "Enter digital coordinates for the salvo: ";
+				cin >> coordonates2;
+
+				projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerA++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles2 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerA == 20)
+			{
+				cout << "You win! Congratulations..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+
+			while (!cycles3)
+			{
+				access = 0;
+
+				system("cls");
+				cout << "///Admiral Edward Pellew" << endl;
+				cout << endl;
+
+				coordinates3 = 1 + rand() % 9;
+				if (coordinates3 == 1)
+				{
+					coordinates1 = 'a';
+				}
+				else if (coordinates3 == 2)
+				{
+					coordinates1 = 'b';
+				}
+				else if (coordinates3 == 3)
+				{
+					coordinates1 = 'c';
+				}
+				else if (coordinates3 == 4)
+				{
+					coordinates1 = 'd';
+				}
+				else if (coordinates3 == 5)
+				{
+					coordinates1 = 'e';
+				}
+				else if (coordinates3 == 6)
+				{
+					coordinates1 = 'f';
+				}
+				else if (coordinates3 == 7)
+				{
+					coordinates1 = 'g';
+				}
+				else if (coordinates3 == 8)
+				{
+					coordinates1 = 'h';
+				}
+				else if (coordinates3 == 9)
+				{
+					coordinates1 = 'i';
+				}
+
+				coordonates2 = 1 + rand() % 9;
+
+				projectionC.projectionE.Show();
+				projectionF.projectionE.Show();
+
+				cout << endl;
+				cout << "The opponent's move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+				projectionC.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+				if (access == 1)
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tHit!" << endl;
+					PlayerB++;
+				}
+				else
+				{
+					cout << endl;
+					cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+					cycles3 = true;
+				}
+				system("pause");
+			}
+
+			if (PlayerB == 20)
+			{
+				cout << "You Lose! Go to the bottom of the kraken..." << endl;
+				cout << endl;
+				system("pause");
+				exit2 = true;
+				return;
+			}
+		}
+	}
+}
+
+void Ships::Comp_Comp()
+{
+	char coordinates1;
+	int coordonates2 = 0;
+	int coordinates3 = 0;
+	int access = 0;
+	int PlayerA = 0;
+	int PlayerB = 0;
+
+	cycles = false;
+	while (!cycles)
+	{
+		cycles2 = false;
+		cycles3 = false;
+
+		while (!cycles2)
+		{
+			access = 0;
+
+			system("cls");
+			cout << "///Admiral Edward Pellew" << endl;
+			cout << endl;
+
+			coordinates3 = 1 + rand() % 9;
+			if (coordinates3 == 1)
+			{
+				coordinates1 = 'a';
+			}
+			else if (coordinates3 == 2)
+			{
+				coordinates1 = 'b';
+			}
+			else if (coordinates3 == 3)
+			{
+				coordinates1 = 'c';
+			}
+			else if (coordinates3 == 4)
+			{
+				coordinates1 = 'd';
+			}
+			else if (coordinates3 == 5)
+			{
+				coordinates1 = 'e';
+			}
+			else if (coordinates3 == 6)
+			{
+				coordinates1 = 'f';
+			}
+			else if (coordinates3 == 7)
+			{
+				coordinates1 = 'g';
+			}
+			else if (coordinates3 == 8)
+			{
+				coordinates1 = 'h';
+			}
+			else if (coordinates3 == 9)
+			{
+				coordinates1 = 'i';
+			}
+
+			coordonates2 = 1 + rand() % 9;
+
+			projectionF.projectionE.Show();
+			projectionG.projectionE.ShowEnemy();
+
+			cout << endl;
+			cout << "The Admiral Edward Pellew move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+			projectionG.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+			if (access == 1)
+			{
+				cout << endl;
+				cout << "\t\t\t\t\t\tHit!" << endl;
+				PlayerA++;
+			}
+			else
+			{
+				cout << endl;
+				cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+				cycles2 = true;
+			}
+			system("pause");
+		}
+
+		if (PlayerA == 20)
+		{
+			cout << "Admiral Edward Pellew!" << endl;
+			cout << endl;
+			system("pause");
+			return;
+		}
+
+		while (!cycles3)
+		{
+			access = 0;
+
+			system("cls");
+			cout << "\\\\\\Sam Bellamy" << endl;
+			cout << endl;
+
+			coordinates3 = 1 + rand() % 9;
+			if (coordinates3 == 1)
+			{
+				coordinates1 = 'a';
+			}
+			else if (coordinates3 == 2)
+			{
+				coordinates1 = 'b';
+			}
+			else if (coordinates3 == 3)
+			{
+				coordinates1 = 'c';
+			}
+			else if (coordinates3 == 4)
+			{
+				coordinates1 = 'd';
+			}
+			else if (coordinates3 == 5)
+			{
+				coordinates1 = 'e';
+			}
+			else if (coordinates3 == 6)
+			{
+				coordinates1 = 'f';
+			}
+			else if (coordinates3 == 7)
+			{
+				coordinates1 = 'g';
+			}
+			else if (coordinates3 == 8)
+			{
+				coordinates1 = 'h';
+			}
+			else if (coordinates3 == 9)
+			{
+				coordinates1 = 'i';
+			}
+
+			coordonates2 = 1 + rand() % 9;
+
+			projectionG.projectionE.Show();
+			projectionF.projectionE.ShowEnemy();
+
+			cout << endl;
+			cout << "The Sam Bellamy move. Coordinates of the salvo: " << coordinates1 << coordonates2 << endl;
+
+			projectionF.projectionE.ProjectionShow(coordinates1, coordonates2, access);
+
+			if (access == 1)
+			{
+				cout << endl;
+				cout << "\t\t\t\t\t\tHit!" << endl;
+				PlayerB++;
+			}
+			else
+			{
+				cout << endl;
+				cout << "\t\t\t\t\t\tDidn't hit :(" << endl;
+				cycles3 = true;
+			}
+			system("pause");
+		}
+
+		if (PlayerB == 20)
+		{
+			cout << "Sam Bellamy Pellew!" << endl;
+			cout << endl;
+			system("pause");
+			return;
 		}
 	}
 }

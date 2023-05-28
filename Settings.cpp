@@ -9931,6 +9931,14 @@ void Settings::Show()
 			{
 				cout << "[x]";
 			}
+			else if (field[i][j] == 2)
+			{
+				cout << "[*]";
+			}
+			else if (field[i][j] == 3)
+			{
+				cout << "[#]";
+			}
 			else
 			{
 				cout << "[ ]";
@@ -9938,5 +9946,217 @@ void Settings::Show()
 		}
 		iteration++;
 		cout << endl;
+	}
+}
+
+void Settings::ShowEnemy()
+{
+	int ascii = 97;
+	int iteration = 1;
+
+	for (int i = 0; i < 9; i++)
+	{
+			cout << "  " << (char)ascii;
+			ascii++;
+	}
+
+	cout << endl;
+
+	for (int i = 0; i < 9; i++)
+	{
+		cout << iteration;
+		for (int j = 0; j < 9; j++)
+		{
+			if (field[i][j] == 2)
+			{
+				cout << "[*]";
+			}
+			else if (field[i][j] == 3)
+			{
+				cout << "[#]";
+			}
+			else
+			{
+				cout << "[ ]";
+			}
+		}
+		iteration++;
+		cout << endl;
+	}
+}
+
+void Settings::ProjectionShow(char sign, int coordinates, int& access)
+{
+	if (sign == 'a')
+	{
+		access = 0;
+		for (int i = coordinates - 1; i < coordinates; i++)
+		{
+			for (int j = 0; j < 1; j++)
+			{
+				if (field[i][j] == 1)
+				{
+					field[i][j] = 3;
+					access++;
+				}
+				else
+				{
+					field[i][j] = 2;
+					system("pause");
+				}
+			}
+		}
+	}
+	else if (sign == 'b')
+	{
+		access = 0;
+		for (int i = coordinates - 1; i < coordinates; i++)
+		{
+			for (int j = 1; j < 2; j++)
+			{
+				if (field[i][j] == 1)
+				{
+					field[i][j] = 3;
+					access++;
+				}
+				else
+				{
+					field[i][j] = 2;
+				}
+			}
+		}
+	}
+	else if (sign == 'c')
+	{
+		access = 0;
+		for (int i = coordinates - 1; i < coordinates; i++)
+		{
+			for (int j = 2; j < 3; j++)
+			{
+				if (field[i][j] == 1)
+				{
+					field[i][j] = 3;
+					access++;
+				}
+				else
+				{
+					field[i][j] = 2;
+				}
+			}
+		}
+	}
+	else if (sign == 'd')
+	{
+		access = 0;
+		for (int i = coordinates - 1; i < coordinates; i++)
+		{
+			for (int j = 3; j < 4; j++)
+			{
+				if (field[i][j] == 1)
+				{
+					field[i][j] = 3;
+					access++;
+				}
+				else
+				{
+					field[i][j] = 2;
+				}
+			}
+		}
+	}
+	else if (sign == 'e')
+	{
+		access = 0;
+		for (int i = coordinates - 1; i < coordinates; i++)
+		{
+			for (int j = 4; j < 5; j++)
+			{
+				if (field[i][j] == 1)
+				{
+					field[i][j] = 3;
+					access++;
+				}
+				else
+				{
+					field[i][j] = 2;
+				}
+			}
+		}
+	}
+	else if (sign == 'f')
+	{
+		access = 0;
+		for (int i = coordinates - 1; i < coordinates; i++)
+		{
+			for (int j = 5; j < 6; j++)
+			{
+				if (field[i][j] == 1)
+				{
+					field[i][j] = 3;
+					access++;
+				}
+				else
+				{
+					field[i][j] = 2;
+				}
+			}
+		}
+	}
+	else if (sign == 'g')
+	{
+		access = 0;
+		for (int i = coordinates - 1; i < coordinates; i++)
+		{
+			for (int j = 6; j < 7; j++)
+			{
+				if (field[i][j] == 1)
+				{
+					field[i][j] = 3;
+					access++;
+				}
+				else
+				{
+					field[i][j] = 2;
+				}
+			}
+		}
+	}
+	else if (sign == 'h')
+	{
+		access = 0;
+		for (int i = coordinates - 1; i < coordinates; i++)
+		{
+			for (int j = 7; j < 8; j++)
+			{
+				if (field[i][j] == 1)
+				{
+					field[i][j] = 3;
+					access++;
+				}
+				else
+				{
+					field[i][j] = 2;
+				}
+			}
+		}
+	}
+	else if (sign == 'i')
+	{
+		access = 0;
+		for (int i = coordinates - 1; i < coordinates; i++)
+		{
+			for (int j = 8; j < 9; j++)
+			{
+				if (field[i][j] == 1)
+				{
+					field[i][j] = 3;
+					access++;
+				}
+				else
+				{
+					field[i][j] = 2;
+				}
+			}
+		}
 	}
 }
