@@ -9933,11 +9933,11 @@ void Settings::Show()
 			}
 			else if (field[i][j] == 2)
 			{
-				cout << "[*]";
+				cout << "[#]";
 			}
 			else if (field[i][j] == 3)
 			{
-				cout << "[#]";
+				cout << "[*]";
 			}
 			else
 			{
@@ -9969,11 +9969,11 @@ void Settings::ShowEnemy()
 		{
 			if (field[i][j] == 2)
 			{
-				cout << "[*]";
+				cout << "[#]";
 			}
 			else if (field[i][j] == 3)
 			{
-				cout << "[#]";
+				cout << "[*]";
 			}
 			else
 			{
@@ -9985,7 +9985,7 @@ void Settings::ShowEnemy()
 	}
 }
 
-void Settings::ProjectionShow(char sign, int coordinates, int& access)
+void Settings::ProjectionShow(char sign, int coordinates, int& access, bool& cycles4)
 {
 	if (sign == 'a')
 	{
@@ -9998,11 +9998,16 @@ void Settings::ProjectionShow(char sign, int coordinates, int& access)
 				{
 					field[i][j] = 3;
 					access++;
+					cycles4 = true;
+				}
+				else if (field[i][j] == 2 || field[i][j] == 3)
+				{
+					field[i][j] = field[i][j];
 				}
 				else
 				{
 					field[i][j] = 2;
-					system("pause");
+					cycles4 = true;
 				}
 			}
 		}
@@ -10018,10 +10023,16 @@ void Settings::ProjectionShow(char sign, int coordinates, int& access)
 				{
 					field[i][j] = 3;
 					access++;
+					cycles4 = true;
+				}
+				else if (field[i][j] == 2 || field[i][j] == 3)
+				{
+					field[i][j] = field[i][j];
 				}
 				else
 				{
 					field[i][j] = 2;
+					cycles4 = true;
 				}
 			}
 		}
@@ -10037,10 +10048,16 @@ void Settings::ProjectionShow(char sign, int coordinates, int& access)
 				{
 					field[i][j] = 3;
 					access++;
+					cycles4 = true;
+				}
+				else if (field[i][j] == 2 || field[i][j] == 3)
+				{
+					field[i][j] = field[i][j];
 				}
 				else
 				{
 					field[i][j] = 2;
+					cycles4 = true;
 				}
 			}
 		}
@@ -10056,10 +10073,16 @@ void Settings::ProjectionShow(char sign, int coordinates, int& access)
 				{
 					field[i][j] = 3;
 					access++;
+					cycles4 = true;
+				}
+				else if (field[i][j] == 2 || field[i][j] == 3)
+				{
+					field[i][j] = field[i][j];
 				}
 				else
 				{
 					field[i][j] = 2;
+					cycles4 = true;
 				}
 			}
 		}
@@ -10075,10 +10098,16 @@ void Settings::ProjectionShow(char sign, int coordinates, int& access)
 				{
 					field[i][j] = 3;
 					access++;
+					cycles4 = true;
+				}
+				else if (field[i][j] == 2 || field[i][j] == 3)
+				{
+					field[i][j] = field[i][j];
 				}
 				else
 				{
 					field[i][j] = 2;
+					cycles4 = true;
 				}
 			}
 		}
@@ -10094,10 +10123,16 @@ void Settings::ProjectionShow(char sign, int coordinates, int& access)
 				{
 					field[i][j] = 3;
 					access++;
+					cycles4 = true;
+				}
+				else if (field[i][j] == 2 || field[i][j] == 3)
+				{
+					field[i][j] = field[i][j];
 				}
 				else
 				{
 					field[i][j] = 2;
+					cycles4 = true;
 				}
 			}
 		}
@@ -10113,10 +10148,16 @@ void Settings::ProjectionShow(char sign, int coordinates, int& access)
 				{
 					field[i][j] = 3;
 					access++;
+					cycles4 = true;
+				}
+				else if (field[i][j] == 2 || field[i][j] == 3)
+				{
+					field[i][j] = field[i][j];
 				}
 				else
 				{
 					field[i][j] = 2;
+					cycles4 = true;
 				}
 			}
 		}
@@ -10132,10 +10173,16 @@ void Settings::ProjectionShow(char sign, int coordinates, int& access)
 				{
 					field[i][j] = 3;
 					access++;
+					cycles4 = true;
+				}
+				else if (field[i][j] == 2 || field[i][j] == 3)
+				{
+					field[i][j] = field[i][j];
 				}
 				else
 				{
 					field[i][j] = 2;
+					cycles4 = true;
 				}
 			}
 		}
@@ -10151,10 +10198,16 @@ void Settings::ProjectionShow(char sign, int coordinates, int& access)
 				{
 					field[i][j] = 3;
 					access++;
+					cycles4 = true;
+				}
+				else if (field[i][j] == 2 || field[i][j] == 3)
+				{
+					field[i][j] = field[i][j];
 				}
 				else
 				{
 					field[i][j] = 2;
+					cycles4 = true;
 				}
 			}
 		}

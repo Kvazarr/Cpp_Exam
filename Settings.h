@@ -93,5 +93,5 @@ public:
 
 	void Show();
 	void ShowEnemy();
-	void ProjectionShow(char sign, int coordinates,int& access);
+	void ProjectionShow(char sign, int coordinates,int& access,bool& cycles4);
 };

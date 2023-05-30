@@ -10,11 +10,11 @@ struct Ships
 	Comp projectionF;
 	Comp projectionG;
 	bool cycles;
-	bool cycles2;
-	bool cycles3;
-public:
+	bool cycles2 = false;
+	bool cycles3 = false;
+	bool cycles4 = false;
 	char choice;
-
+public:
 	void RandomProcessBritish(char choise, bool& exit2);
 	void ProcessBritish(char choise, bool& exit2);
 	void RandomProcessPirates(char choise, bool& exit2);
