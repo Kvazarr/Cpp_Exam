@@ -4,9 +4,9 @@ This is a simple implementation of the classic Battleship game in C++. It allows
 
 ## Rules of the Game
 
-1. Each player has a fleet of ships placed on a 9x9 grid.
-2. Players take turns guessing the coordinates to target their opponent's ships.
-3. The game ends when one player has successfully sunk all of the opponent's ships.
+- Each player has a fleet of ships placed on a 9x9 grid.
+- Players take turns guessing the coordinates to target their opponent's ships.
+- The game ends when one player has successfully sunk all of the opponent's ships.
 
 ## Features
 
